@@ -124,7 +124,7 @@ contract CentroSalud {
   }
 
   // funcion que permita la visualizacion de un resultado
-  function visualizarResultado(string memory _idPersona, uint _nroPrueba) public view returns (uint fecha, bool resultado, string memory codigoIPFS) {
+  function visualizarResultado(string memory _idPersona, uint _nroPrueba) public view returns (uint fecha, bool diagnostico, string memory codigoIPFS) {
     // resultado de la prueba
     ResultadoCOVID memory resultadoCOVID = resultadosCOVID[keccak256(abi.encodePacked(_idPersona))][_nroPrueba];
 
