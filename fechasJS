@@ -1,0 +1,22 @@
+contract BirthDate {
+
+    uint256 public birthdate;
+
+    function set(uint256 _birthdate) public {
+        birthdate = _birthdate;
+    }
+
+    function get() public view returns (uint _birthdate) {
+        return birthdate;
+  }
+  
+}
+
+
+let date = (new Date()).getTime();
+let birthDateInUnixTimestamp = date / 1000;
+await BirthDate.methods.set(birthDateInUnixTimestamp).send(opts);
+
+
+let birthDateInUnixTimestamp = await BirthDate.methods.get().call();
+let date = new Date(birthDateInUnixTimestamp * 1000);
